@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;display=swap&amp;subset=cyrillic"
+        rel="stylesheet">
+    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/media.css">
+    <link rel="stylesheet" href="public/scripts/themes/simple.css">
+    <link rel="stylesheet" href="public/scripts/jquery.arcticmodal-0.3.css">
+    <link rel="shortcut icon" href="public/img/title_icon.png" type="image/png">
+    <title>Радостинки</title>
+</head>
+
+<body>
+    <header class="basket-header">
+        <div class="container">
+            <div class="header__navbar" id="hidden-header">
+                <div class="header__logo">
+                    <a href="/index">
+                        <h1> Радостинки</h1>
+                    </a>
+                </div>
+                <div class="header__list">
+
+                    <div id="mini-basket">
+                        <div id="mini-basket__background">
+                            <a href="/basket">
+                                <div id="mini-basket__link">
+                                </div>
+                            </a>
+                            <div id="mini-basket__hover_content">
+                                <a href="/basket">
+                                    <div class="title">
+                                        Корзина
+                                    </div>
+                                </a>
+                                <div class="commodity">
+
+                                </div>
+                                <div class="conclusion">
+                                    <div id="mainPrice">0 грн</div>
+                                    <div class="registration">
+                                        <a href="">Оформити</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <main class="big-basket">
+        <div class="basket-container">
+            <h1 class="page-title">Корзина</h1>
+            <button class="clean-basket" id="removeBasket" name="removeBasket"> Очистити Корзину</button>
+
+            <div id="basketContent">
+
+            </div>
+
+        </div>
+        <div class="make-order-container">
+            <div class="make-order">
+                <span>Оформити замовлення</span>
+            </div>
+            <form method="POST" id="main-form">
+                <div class="card-form-container">
+                    <div class="card-form">
+                        <div class="card__form-data">
+                            <div class="card__form-label">Дані покупця</div>
+                            <div class="card-input-wrapper">
+                                <input placeholder="ПІБ" value="" name="fullname">
+                            </div>
+                            <div class="card-input-wrapper">
+                                <input placeholder="Введіть номер телефону" type="tel" value="+380"  maxlength="13"
+                                    name="tel" minlength="0">
+                            </div>
+                        </div>
+                        <div class="card__form-data">
+                            <div class="card__form-label">Доставка</div>
+                            <div class="card-input-wrapper">
+                                <input type="text" list="exampleList" placeholder="Пошта" name="delivery">
+                                <datalist id="exampleList">
+                                    <option>Нова Пошта</option>
+                                    <option>Укрпошта</option>
+                                </datalist></div>
+                            <div class="card-input-wrapper">
+                                <input type="text" name="region" placeholder="Область доставки">
+
+                                <div class="card-input-wrapper">
+                                    <input type="text" name="town" placeholder="Місто доставки">
+
+                                </div>
+                                <div class="card-input-wrapper">
+                                    <input type="text" name="vid" placeholder="Відділення доставки">
+
+                                </div>
+                                <div id="basketData">
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <button type="submit" class="main-button btn btn-primary" id="main-button" data-toggle="modal"
+                        data-target="#exampleModal" data-target="#exampleModal"
+                        style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">Оформити замовлення</button>
+                   
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="left-side">
+                    <h3>Радостинки</h3>
+                    <p>У нас ви знайдете текстильні та в"язані іграшки-звірята; розвиваючі кубики; гризунці; брязкальця;
+                        намисто; текстильні тюльпани. Звертайтесь, радо створимо щось оригінальне і для Вас!
+                    </p>
+                </div>
+                <div class="right-side">
+                    <nav class="navigation">
+                        <a class="navigation__item without" href="https://www.instagram.com/radostinki_toys/?hl=uk"
+                            target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                        <a class="navigation__item without" href="https://www.facebook.com/pg/radostinki.toys/posts/"
+                            target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+                    </nav>
+                    <div class="text">
+                        Design by fwd-14
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div style="display: none;">
+        <div class="box-modal" id="boxUserFirstInfo">
+            <div class="box-modal_close arcticmodal-close">Закрити</div>
+            <b>Привіт</b><br>
+            <br>
+           Дякуємо, що обрали Радостинки! Незабаром ми вам зателефонуємо і узгодимо всі деталі замовлення.
+        </div>
+    </div>
+    <div style="display: none;">
+        <div class="box-modal" id="boxUserFirstInfoFalse">
+            <div class="box-modal_close arcticmodal-close">Закрити</div>
+            <b>Привіт</b><br>
+            <br>
+            Сподіваюсь тобі сподобалось на нашому сайті.
+           Вас замовлення не принятий. Спробуйте ще раз.
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="public/scripts/main.js"></script>
+    <script src="https://use.fontawesome.com/9a22e10dc5.js"></script>
+    <script src="public/scripts/jquery.arcticmodal-0.3.min.js"></script>
+
+</body>
+
+</html>

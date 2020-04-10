@@ -1,0 +1,28 @@
+{
+  "name": "radostinki",
+  "version": "1.0.0",
+  "description": "site",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.2",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fwd-14-1/radostinki.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fwd-14-1/radostinki/issues"
+  },
+  "homepage": "https://github.com/fwd-14-1/radostinki#readme"
+}
