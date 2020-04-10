@@ -50,6 +50,7 @@
   }
 }
 
+
 @media screen and (max-width: 700px) {
   .header__text {
     font-size: 41px;
@@ -88,7 +89,11 @@
     width: 400px;
   }
   .about__us p {
-    padding: 25px 40px;
+    padding: 10px 40px;
+  }
+  .about-us-container {
+    background-color: #ebebeb;
+    height: 550px;
   }
   .footer {
     flex-wrap: wrap;
@@ -107,7 +112,7 @@
     width: 100%;
   }
   footer {
-    padding: 65px 0 75px;
+    padding: 30px 0 30px;
   }
   .goods__price{
     margin: 20px 0;
@@ -170,7 +175,8 @@ background-position: center;  }
     font-size: 17px;
   }
   footer {
-    padding: 45px 0 55px;
+    padding: 20px 0 20px;
+    line-height: 30px;
   }
   .goods__recomended-title h3{
     font-size: 16px;
@@ -190,7 +196,14 @@ background-position: center;  }
   .basket-view {
     width: 100%;
   }
-
+  .contact-input-wrapper input,
+  select {
+    
+    height: 40px;
+  }
+  .contact-input-wrapper {
+    margin-bottom: 25px;
+  }
 }
 
 @media (max-width: 400px) {

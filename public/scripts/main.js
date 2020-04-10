@@ -1,9 +1,7 @@
 window.onload = function () {
     card = {};
     goods = {};
-
-
-    /* GETTING DATA FROM STORAGE*/
+        /* GETTING DATA FROM STORAGE*/
     function loadCardFromStorage() {
         if (sessionStorage.getItem('card') != undefined) {
             card = JSON.parse(sessionStorage.getItem('card'));
@@ -112,13 +110,7 @@ document.onclick = function (e) {
 }
 
 /* REMOVE ALL ITEMS WITH MINI-BASKET */
-removeAlls.onclick = function () {
-    sessionStorage.clear();
-    card = {};
-    document.getElementById("mainPrice").textContent = "0 грн";
-    renderBasket();
-    document.getElementById('basketContent').innerHTML = showBasketContent(goods);
-}
+
 
 /* END */
 
@@ -238,7 +230,7 @@ function ShowGoods(data) {
          <img data="${data[key]['gsx$id']['$t']}" name="block" class="card-img-top" src="${data[key]['gsx$image']['$t']}" alt="${data[key]['gsx$name']['$t']}">
          <div class="card-body ">
          <h5  class="card-title">${data[key]['gsx$name']['$t']}</h5>
-         <p class="card-text ">${data[key]['gsx$cost']['$t']}грн</p>
+         <p class="card-text ">${data[key]['gsx$cost']['$t']} грн</p>
          <p class="card-text">${data[key]['gsx$description']['$t']}</p>
          </div>
          </a>
@@ -326,7 +318,7 @@ function ShowOneItem(data) {
             </div>
             <div class="goods__wrap">
                 <div class="goods__name">${test.gsx$name.$t}</div>
-                <div class="goods__price">${test.gsx$cost.$t}грн.</div>
+                <div class="goods__price">${test.gsx$cost.$t} грн.</div>
                 <div class="goods__title">
                     <h3>${test.gsx$extradescription.$t}</h3>
                 </div>
@@ -369,7 +361,6 @@ function ShowOneItem(data) {
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <a href="#" class="second__link" data-toggle="modal" data-target=".bd-example-modal-lg">Наявність в магазині</a>
                                                                         <!-- Modal -->
                     <div class="modal fade bd-example-modal-lg" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog modal-lg modal-dialog-scrollable" role="document">
@@ -405,7 +396,7 @@ function ShowOneItem(data) {
                             ${data[unicIdArr[0]].gsx$name.$t}
                             </div>
                             <div class="goods__recomended-item-price">
-                            ${data[unicIdArr[0]].gsx$cost.$t}грн.
+                            ${data[unicIdArr[0]].gsx$cost.$t} грн.
                             </div>
                         </div>
                     </a>
@@ -418,7 +409,7 @@ function ShowOneItem(data) {
                             ${data[unicIdArr[1]].gsx$name.$t}
                             </div>
                             <div class="goods__recomended-item-price">
-                            ${data[unicIdArr[1]].gsx$cost.$t}грн.
+                            ${data[unicIdArr[1]].gsx$cost.$t} грн.
 
                             </div>
                                                                         </div>
@@ -432,7 +423,7 @@ function ShowOneItem(data) {
                             ${data[unicIdArr[2]].gsx$name.$t}
                             </div>
                             <div class="goods__recomended-item-price">
-                            ${data[unicIdArr[2]].gsx$cost.$t}грн.
+                            ${data[unicIdArr[2]].gsx$cost.$t} грн.
                             </div>
                         </div>
                     </a>
@@ -445,7 +436,7 @@ function ShowOneItem(data) {
                             ${data[unicIdArr[3]].gsx$name.$t}
                             </div>
                             <div class="goods__recomended-item-price">
-                            ${data[unicIdArr[3]].gsx$cost.$t}грн.
+                            ${data[unicIdArr[3]].gsx$cost.$t} грн.
 
                             </div>
                                                                         </div>
@@ -455,47 +446,6 @@ function ShowOneItem(data) {
 
     return out;
 }
-
-/* MINI BASKET ON MOUSEIN */
-
-
-function MiniBasket() {
-    var self = this;
-
-
-    this.content_container = document.getElementById('mini-basket__hover_content');
-    this.display_link = document.getElementById('mini-basket__background');
-
-
-    if (this.content_container) {
-
-        if (this.display_link) {
-            this.display_link.onmouseover = function () { self.Show(); }
-            this.display_link.onmouseout = function () { self.Hide(); }
-        }
-        this.content_container.style.display = 'none';
-    }
-}
-
-
-MiniBasket.prototype.Show = function () {
-    var self = this;
-
-    this.content_container.style.display = 'block';
-
-}
-
-
-MiniBasket.prototype.Hide = function () {
-    this.content_container.style.display = 'none';
-
-    window.onresize = null;
-}
-
-
-var minibasket = new MiniBasket();
-
-/* END */
 
 
 

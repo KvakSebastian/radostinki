@@ -30,6 +30,7 @@
                         <div id="mini-basket__background">
                             <a href="/basket">
                                 <div id="mini-basket__link">
+                                    <div id="mini-basket__link-number"></div>
                                 </div>
                             </a>
                             <div id="mini-basket__hover_content">
@@ -37,10 +38,9 @@
                                     Корзина
                                 </div>
                                 <div class="commodity">
-
+                                    <p>Ваша корзина порожня</p>
                                 </div>
                                 <div class="conclusion">
-                                    <button class="clearAll" id="removeAlls" name="removeAll">Очистити</button>
                                     <div id="mainPrice">0 грн</div>
                                     <div class="registration">
                                         <a href="/basket">Оформити</a>
@@ -64,42 +64,62 @@
         <div class="items " id="goods">
         </div>
     </main>
-    <hr>
 
     <section>
-        <div class="container">
+        <div class="about-us-container">
             <div class="about__us">
-                <fieldset>
-                    <legend>Про Нас</legend>
-                    <p>
-                        "Хто такі Радостинки? Радостинки - це іграшки ручної роботи, головною особливістю яких є усмішка
-                        :) У нашій Творчій Майстерні ви зможете замовити та придбати текстильні та в'язані
-                        іграшки-звірята, текстильні кубики для розвитку дрібної моторики, гризунці, брязкальця.
-                        Звертайтесь, радо створимо щось оригінальне і для Вас!
-                    </p>
-                </fieldset>
+                <p class='about-us-header'>Про нас</p>
+                <p class='about-us-text'>
+                    "Хто такі Радостинки? Радостинки - це іграшки ручної роботи, головною особливістю яких є усмішка
+                    :) У нашій Творчій Майстерні ви зможете замовити та придбати текстильні та в'язані
+                    іграшки-звірята, текстильні кубики для розвитку дрібної моторики, гризунці, брязкальця.
+                    Звертайтесь, радо створимо щось оригінальне і для Вас!
+                </p>
             </div>
+        </div>
+    </section>
+    <section>
+        <div class="contact-form">
+            <div class="contact-form-header">Зв'язок з нами</div>
+            <div class="contact-form-text">Маєте цікаві ідеї? Хочете отримати додаткову інформацію?<br> Заповніть форму
+                нижче або зателефонуйте нам : +380123456789 </div>
+
+            <form method="POST" id="contact-form">
+
+                <div class="contact-form-label">І'мя</div>
+                <div class="contact-input-wrapper">
+                    <input placeholder="ПІБ" value="" name="fullname">
+                </div>
+                <div class="contact-form-label">E-mail</div>
+                <div class="contact-input-wrapper">
+                    <input placeholder="example@com.ua" value="" name="email">
+                </div>
+                <div class="contact-form-label">Номер телефону</div>
+                <div class="contact-input-wrapper">
+                    <input placeholder="+380123456789" type="tel" value="+380" maxlength="13" name="tel" minlength="0">
+                </div>
+                <div class="button-class">
+                    <button type="submit" class="contact-main-button btn btn-primary" id="contact-button"
+                        data-toggle="modal" data-target="#exampleModal" data-target="#exampleModal" ;">Відправити
+                        дані</button>
+                </div>
+            </form>
         </div>
     </section>
     <footer>
         <div class="container">
             <div class="footer">
                 <div class="left-side">
-                    <h3>Радостинки</h3>
-                    <p>У нас ви знайдете текстильні та в"язані іграшки-звірята; розвиваючі кубики; гризунці; брязкальця;
-                        намисто; текстильні тюльпани. Звертайтесь, радо створимо щось оригінальне і для Вас!
-                    </p>
+                  © All Right Reserved. Радостинки
                 </div>
                 <div class="right-side">
-                    <nav class="navigation">
+                    <div class="navigation">
                         <a class="navigation__item without" href="https://www.instagram.com/radostinki_toys/?hl=uk"
                             target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
                         <a class="navigation__item without" href="https://www.facebook.com/pg/radostinki.toys/posts/"
                             target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-                    </nav>
-                    <div class="text">
-                        Design by fwd-14
                     </div>
+
                 </div>
             </div>
         </div>

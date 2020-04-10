@@ -42,7 +42,7 @@ app.post('/basket', function (req, res) {
     from: 'fwd14fwd@gmail.com',
     to: 'fwd14fwd@gmail.com',
     subject: "Замовлення",
-    html: `<p>ПІБ${req.body['fullname']}]</p><br>` +
+    html: `<p>ПІБ ${req.body['fullname']}</p><br>` +
       `Телефон : ${req.body.tel}<br>` +
       `Тип доставки: ${req.body.delivery}<br>` +
       `Область:${req.body.region}<br>` +
@@ -54,7 +54,7 @@ app.post('/basket', function (req, res) {
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      res.end();
+      res.end(false);
     } else {
       console.log('Email sent: ' + info.response);
       res.send(true);
@@ -65,4 +65,4 @@ app.post('/basket', function (req, res) {
 
 );
 
-app.listen(3000);
+app.listen(3002);
