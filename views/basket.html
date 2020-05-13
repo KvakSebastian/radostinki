@@ -31,26 +31,24 @@
                     </a>
                 </div>
                 <div class="header__list">
-
                     <div id="mini-basket">
                         <div id="mini-basket__background">
                             <a href="/basket">
                                 <div id="mini-basket__link">
+                                    <div id="mini-basket__link-number"></div>
                                 </div>
                             </a>
                             <div id="mini-basket__hover_content">
-                                <a href="/basket">
-                                    <div class="title">
-                                        Корзина
-                                    </div>
-                                </a>
+                                <div class="title">
+                                    Корзина
+                                </div>
                                 <div class="commodity">
-
+                                    <p>Ваша корзина порожня</p>
                                 </div>
                                 <div class="conclusion">
                                     <div id="mainPrice">0 грн</div>
                                     <div class="registration">
-                                        <a href="">Оформити</a>
+                                        <a href="/basket">Оформити</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,12 +56,13 @@
                     </div>
                 </div>
             </div>
+        </div> 
     </header>
 
     <main class="big-basket">
         <div class="basket-container">
             <h1 class="page-title">Корзина</h1>
-            <button class="clean-basket" id="removeBasket" name="removeBasket"> Очистити Корзину</button>
+            <button class="clean-basket" id="removeBasket" name="removeBasket" onclick="removeBasket()"> Очистити Корзину</button>
 
             <div id="basketContent">
 
@@ -83,7 +82,7 @@
                                 <input placeholder="ПІБ" value="" name="fullname">
                             </div>
                             <div class="card-input-wrapper">
-                                <input placeholder="Введіть номер телефону" type="tel" value="+380"  maxlength="13"
+                                <input placeholder="Введіть номер телефону" type="tel" value="+380" maxlength="13"
                                     name="tel" minlength="0">
                             </div>
                         </div>
@@ -110,12 +109,12 @@
                                 </div>
                             </div>
                         </div>
-                      
+
                     </div>
                     <button type="submit" class="main-button btn btn-primary" id="main-button" data-toggle="modal"
                         data-target="#exampleModal" data-target="#exampleModal"
                         style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">Оформити замовлення</button>
-                   
+
             </form>
         </div>
     </main>
@@ -124,31 +123,27 @@
         <div class="container">
             <div class="footer">
                 <div class="left-side">
-                    <h3>Радостинки</h3>
-                    <p>У нас ви знайдете текстильні та в"язані іграшки-звірята; розвиваючі кубики; гризунці; брязкальця;
-                        намисто; текстильні тюльпани. Звертайтесь, радо створимо щось оригінальне і для Вас!
-                    </p>
+                  © All Right Reserved. Радостинки
                 </div>
                 <div class="right-side">
-                    <nav class="navigation">
+                    <div class="navigation">
                         <a class="navigation__item without" href="https://www.instagram.com/radostinki_toys/?hl=uk"
                             target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
                         <a class="navigation__item without" href="https://www.facebook.com/pg/radostinki.toys/posts/"
                             target="_blank"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-                    </nav>
-                    <div class="text">
-                        Design by fwd-14
                     </div>
+
                 </div>
             </div>
         </div>
     </footer>
+
     <div style="display: none;">
         <div class="box-modal" id="boxUserFirstInfo">
             <div class="box-modal_close arcticmodal-close">Закрити</div>
             <b>Привіт</b><br>
             <br>
-           Дякуємо, що обрали Радостинки! Незабаром ми вам зателефонуємо і узгодимо всі деталі замовлення.
+            Дякуємо, що обрали Радостинки! Незабаром ми вам зателефонуємо і узгодимо всі деталі замовлення.
         </div>
     </div>
     <div style="display: none;">
@@ -157,7 +152,7 @@
             <b>Привіт</b><br>
             <br>
             Сподіваюсь тобі сподобалось на нашому сайті.
-           Вас замовлення не принятий. Спробуйте ще раз.
+            Ваше замовлення не принятий. Спробуйте ще раз.
         </div>
     </div>
 

@@ -1,15 +1,31 @@
 window.onload = function () {
     card = {};
     goods = {};
+   
         /* GETTING DATA FROM STORAGE*/
     function loadCardFromStorage() {
         if (sessionStorage.getItem('card') != undefined) {
             card = JSON.parse(sessionStorage.getItem('card'));
         }
     }
+    
     loadCardFromStorage();
-    /* END */
 
+    
+    /* END */
+    basketNumber=getBasketNumber();
+    basketNumberHTML = document.getElementById("mini-basket__link-number");
+    basketNumberHTML.innerHTML = basketNumber;
+    function getBasketNumber (){
+        let temp=0;
+        if (card){
+        for (item in card){
+            temp+=card.item;
+            }
+        return temp;
+        }
+        else return temp=0;
+    } 
     selectedGoodsID = '';
     let getJSON = function (url, callback) {
         let xhr = new XMLHttpRequest();
@@ -51,6 +67,15 @@ window.onload = function () {
     });
 }
 
+function initializeIfEmpty(){
+    var content = document.querySelector('.commodity');
+    content.innerHTML="Work";
+    rend
+}
+
+const getCountFromStorage = () => {
+    card.log
+}
 /* INSERT DATA INTO HIDDEN INPUT*/
 function insertData() {
     var out = "";
@@ -93,24 +118,25 @@ document.onclick = function (e) {
     else if (e.target.attributes.name.nodeValue == "removeOne") {
         delete card[selectedGoodsID];
         sessionStorage.setItem("card", JSON.stringify(card));
-        renderBasket();
         if (document.getElementById('basketContent')) {
             document.getElementById('basketContent').innerHTML = showBasketContent(goods);
         }
         document.getElementById("mainPrice").textContent = "0 грн";
+        renderBasket();
+
         showTotals();
     }
     else if (e.target.attributes.name.nodeValue == "remove_basket") {
         sessionStorage.clear();
     card = {};
     document.getElementById("mainPrice").textContent = "0 грн";
+
     renderBasket();
     document.getElementById('basketContent').innerHTML = showBasketContent(goods);
     }
 }
 
 /* REMOVE ALL ITEMS WITH MINI-BASKET */
-
 
 /* END */
 
@@ -134,12 +160,15 @@ function removeFromBasket(elem) {
 function addToBasket(elem) {
     if (card[elem] !== undefined) {
         card[elem]++;
+
     }
     else {
         card[elem] = 1;
     }
     sessionStorage.setItem("card", JSON.stringify(card));
     renderBasket();
+    basketNumberHTML.innerHTML = basketNumber 
+    console.log(basketNumber)
 }
 /* END*/
 
@@ -183,10 +212,19 @@ function showBasketContent(goods) {
 /* MINI BASKET CSS */
 function renderBasket() {
     var content = document.querySelector('.commodity');
-    var contentprice = document.getElementById('mainPrice');
     content.innerHTML = "";
+    var out = ``;
+    basketNumber=0;
+    if(Object.keys(card).length == 0){
+        content.innerHTML="Добавте товари в корзину)";
+        document.getElementById('basketContent').innerHTML="Ви ще не обрали товар."
+        basketNumber=0;
+        basketNumberHTML.innerHTML = basketNumber;
+
+    }
+    else {
     for (var item in card) {
-        var out = ``;
+        basketNumber+=card[item];
         out += `<div class="commodity__contents">
                             <img class="image_content" src="${goods[item]['gsx$image']['$t']}" alt="${goods[item]['gsx$name']['$t']}">
                                 <div class="information__about__commodity">
@@ -195,12 +233,29 @@ function renderBasket() {
                                         <div class="price">${goods[item]['gsx$cost']['$t']} грн</div>
                                         <div class="number">${card[item]} шт.</div>
                                         <div class="full__price">${goods[item]['gsx$cost']['$t'] * card[item]} <span>грн</span></div></div></div>
-                                        <img class="remove" name = 'removeOne' data="${goods[item]['gsx$id']['$t']}" src="/public/img/delete.png">
+                                        <img class="remove" onclick="removeFromMiniBaset()" name = 'removeOne' data="${goods[item]['gsx$id']['$t']}" src="/public/img/delete.png">
                                         </div>`;
-        content.innerHTML += out;
         showTotals();
     }
+    content.innerHTML += out;
+    showTotals();
+    basketNumberHTML.innerHTML = basketNumber;
+    }
 }
+
+function removeFromMiniBaset(){
+    basketNumber--;
+    document.getElementById("mainPrice").textContent = "0 грн";
+    document.getElementById('basketContent').innerHTML = showBasketContent(goods);
+    renderBasket();
+}
+function removeBasket(){
+    sessionStorage.clear();
+    card = {};
+    removeFromMiniBaset();
+
+}
+
 
 function showTotals() {
     var items = document.querySelectorAll(".full__price");
@@ -214,7 +269,6 @@ function showTotals() {
         return total;
     }, 0)
     const finalMoney = totalMoney + ' грн';
-
     document.getElementById("mainPrice").textContent = finalMoney;
 }
 /* END */
@@ -453,9 +507,8 @@ function ShowOneItem(data) {
 
 $(document).ready(function () {
     const $window = $(window);
-    console.log(window.location.pathname);
     $(window).scroll(function () {
-        if ($(window).scrollTop() >= 0.9*$window.height()) {
+        if ($(window).scrollTop() >= 0.85*$window.height()) {
             $('#hidden-header').css({
                 'border-bottom': '2px solid white', 'background-color': '#fff',
                 'box-shadow': '0 0 10px rgba(0,0,0,0.5)'
@@ -501,6 +554,24 @@ function showSlides(n) {
 /* SENDING DATA FOR NODEJS */
 $(function () {
     $("#main-form").submit(function (event) {
+        event.preventDefault();
+        $.post("/basket", $(this).serialize()).done(function(data) {
+            if(data){
+                $('#boxUserFirstInfo').arcticmodal({
+                    closeOnOverlayClick: false,
+                    closeOnEsc: true
+                }); 
+          }
+              else {$('#boxUserFirstInfoFalse').arcticmodal({
+                closeOnOverlayClick: false,
+                closeOnEsc: true
+            }); }
+            });
+            
+    })
+});
+$(function () {
+    $("#contact-form").submit(function (event) {
         event.preventDefault();
         $.post("/basket", $(this).serialize()).done(function(data) {
             if(data){
