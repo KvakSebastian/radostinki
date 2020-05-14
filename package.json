@@ -7,6 +7,7 @@
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "node": "^13.12.0",
     "nodemailer": "^6.4.2",
     "nodemon": "^2.0.2"
   },
@@ -15,14 +16,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fwd-14-1/radostinki.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/fwd-14-1/radostinki/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KvakSebastian/radostinki.git"
   },
-  "homepage": "https://github.com/fwd-14-1/radostinki#readme"
+  "bugs": {
+    "url": "https://github.com/KvakSebastian/radostinki/issues"
+  },
+  "homepage": "https://github.com/KvakSebastian/radostinki#readme"
 }

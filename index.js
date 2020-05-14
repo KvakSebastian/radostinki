@@ -38,6 +38,7 @@ app.post('/basket', function (req, res) {
 
 
   console.log(req.body);
+  if (req.body.town){
   var mailOptions = {
     from: 'fwd14fwd@gmail.com',
     to: 'fwd14fwd@gmail.com',
@@ -49,9 +50,17 @@ app.post('/basket', function (req, res) {
       `Місто:${req.body.town}<br>` +
       `Відділення:${req.body.vid}<br>` +
       `Замовлення:${req.body.comment}<br>`
-
-
-  };
+};}
+else {
+  var mailOptions = {
+    from: 'fwd14fwd@gmail.com',
+    to: 'fwd14fwd@gmail.com',
+    subject: "Звязок з нами",
+    html: `<p>ПІБ ${req.body['fullname']}</p><br>` +
+      `Телефон : ${req.body.tel}<br>` +
+      `Пошта:${req.body.email}<br>`
+};
+}
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       res.end(false);

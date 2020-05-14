@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -30,7 +31,7 @@
                         <div id="mini-basket__background">
                             <a href="/basket">
                                 <div id="mini-basket__link">
-                                    <div id="mini-basket__link-number"></div>
+                                    <div id="mini-basket__link-number">0</div>
                                 </div>
                             </a>
                             <div id="mini-basket__hover_content">
@@ -38,7 +39,7 @@
                                     Корзина
                                 </div>
                                 <div class="commodity">
-                                    <p>Ваша корзина порожня</p>
+                                    <p>Добавте товари в</p>
                                 </div>
                                 <div class="conclusion">
                                     <div id="mainPrice">0 грн</div>
@@ -129,7 +130,29 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="public/scripts/main.js"></script>
     <script src="https://use.fontawesome.com/9a22e10dc5.js"></script>
+    <script defer src="/__/firebase/7.14.3/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.14.3/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.14.3/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.14.3/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.14.3/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
 
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+ 
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
 </body>
 
 </html>
